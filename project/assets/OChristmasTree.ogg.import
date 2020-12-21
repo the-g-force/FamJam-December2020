@@ -2,11 +2,13 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-valid=false
+path="res://.import/OChristmasTree.ogg-3ec0160a13b7c676e26b296b6e84139f.oggstr"
 
 [deps]
 
 source_file="res://assets/OChristmasTree.ogg"
+dest_files=[ "res://.import/OChristmasTree.ogg-3ec0160a13b7c676e26b296b6e84139f.oggstr" ]
+
 [params]
 
 loop=true

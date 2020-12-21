@@ -17,7 +17,7 @@ onready var _fall_sound := $FallSound
 onready var _pickup_sound := $PickupSound
 
 func _ready():
-	Jukebox.play_music()
+	Jukebox.play_game_music()
 	randomize()
 	GameState.reset()
 	Engine.time_scale = 1.0

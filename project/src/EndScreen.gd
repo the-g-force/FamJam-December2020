@@ -4,6 +4,7 @@ onready var _ornaments := $Ornaments
 onready var _tree_polygon := $TreePolygon
 
 func _ready():
+	Jukebox.play_end_music()
 	$Label.text = "You collected %d ornaments" % GameState.ornaments.size()
 	for ornament in GameState.ornaments:
 			_ornaments.add_child(ornament)			
