@@ -19,6 +19,10 @@ config/name="Project"
 run/main_scene="res://src/SplashScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Jukebox="*res://src/Jukebox.tscn"
+
 [input]
 
 jump={
