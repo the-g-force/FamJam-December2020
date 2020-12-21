@@ -17,8 +17,8 @@ func _input(event):
 		if not was_pressed_last_frame:
 			was_pressed_last_frame = true
 			Input.action_press("jump")
-	else:
-		if Input.is_action_pressed("jump"):
+	elif event is InputEventMouseButton and not event.is_pressed():
+		if was_pressed_last_frame:
 			was_pressed_last_frame = false
 			Input.action_release("jump")
 
