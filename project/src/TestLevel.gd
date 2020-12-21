@@ -6,6 +6,7 @@ const TileGenerationTrigger : PackedScene = preload("res://src/TileGenerationTri
 const Ornament : PackedScene = preload("res://src/Ornament.tscn")
 
 export var TIME_SCALE_PER_TILE = 0.02
+export var upper_variation_limit := 200
 
 var _tile_index := 0
 
@@ -13,6 +14,7 @@ onready var _tiles := $Tiles
 onready var _camera := $Camera2D
 
 func _ready():
+	randomize()
 	GameState.reset()
 	Engine.time_scale = 1.0
 	for x in range(0,1100,100):
@@ -38,7 +40,8 @@ func _run_tile_generator(x:float)->void:
 	
 	if _tile_index % 5 == 0:
 		var ornament := Ornament.instance()
-		ornament.position.y = -50
+		var ornament_vertical_variation = randi()%upper_variation_limit
+		ornament.position.y = -50-ornament_vertical_variation
 		ornament.position.x = x
 		_ignored = ornament.connect("body_entered", self, "_on_Ornament_entered", [ornament], CONNECT_ONESHOT)
 		_tiles.add_child(ornament)
