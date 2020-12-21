@@ -1,27 +1,42 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/EndScreen.gd" type="Script" id=1]
+[ext_resource path="res://assets/tree.png" type="Texture" id=2]
 
 [node name="EndScreen" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Label" type="Label" parent="."]
-margin_left = 435.578
-margin_top = 282.843
-margin_right = 491.578
-margin_bottom = 296.843
+margin_left = 754.605
+margin_top = 272.164
+margin_right = 810.605
+margin_bottom = 286.164
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Whoops."
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 432.749
-margin_top = 322.441
-margin_right = 509.749
-margin_bottom = 342.441
+margin_left = 751.776
+margin_top = 311.762
+margin_right = 828.776
+margin_bottom = 331.762
 text = "Play Again"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Ornaments" type="Node2D" parent="."]
+
+[node name="TreePolygon" type="Polygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( 528.293, 31.7837, 613.146, 482.918, 328.889, 473.018, 501.423, 31.7837 )
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
