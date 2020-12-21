@@ -3,6 +3,7 @@ extends Node2D
 const INITIAL_TILES := 8
 const Tile : PackedScene = preload("res://src/Tile.tscn")
 const TileGenerationTrigger : PackedScene = preload("res://src/TileGenerationTrigger.tscn")
+const Ornament : PackedScene = preload("res://src/Ornament.tscn")
 
 export var TIME_SCALE_PER_TILE = 0.02
 
@@ -11,6 +12,7 @@ var _tile_index := 0
 onready var _tiles := $Tiles
 
 func _ready():
+	GameState.reset()
 	Engine.time_scale = 1.0
 	for x in range(0,1100,100):
 		_run_tile_generator(x)
@@ -32,6 +34,13 @@ func _run_tile_generator(x:float)->void:
 	_tiles.add_child(trigger)
 	
 	_tile_index += 1
+	
+	if _tile_index % 5 == 0:
+		var ornament := Ornament.instance()
+		ornament.position.y = -50
+		ornament.position.x = x
+		_ignored = ornament.connect("body_entered", self, "_on_Ornament_entered", [ornament], CONNECT_ONESHOT)
+		_tiles.add_child(ornament)
 
 
 # warning-ignore:return_value_discarded
@@ -45,6 +54,11 @@ func _on_TileGenerationTrigger_entered(_body, trigger:Node2D):
 	Engine.time_scale += TIME_SCALE_PER_TILE
 	call_deferred("_run_tile_generator", trigger.position.x + 900)
 	trigger.queue_free()
+
+
+func _on_Ornament_entered(_body, ornament:Node2D):
+	GameState.ornaments.append(ornament)
+	ornament.get_parent().call_deferred("remove_child", ornament)
 
 
 func _process(_delta):
