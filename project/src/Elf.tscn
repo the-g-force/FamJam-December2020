@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/walking-sprite-66x150.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.8575, 72.4528 )
+extents = Vector2( 33, 75 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -71,12 +71,12 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 2.48529, -74.7896 )
+position = Vector2( 0, -75 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 2.32352, -76.9511 )
 frames = SubResource( 12 )
 animation = "walk"
-frame = 4
+frame = 9
 playing = true

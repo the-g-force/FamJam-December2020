@@ -14,6 +14,9 @@ func _physics_process(delta:float):
 	_velocity.x = 300
 	_velocity.y += GRAVITY * delta
 	
+	# Must call move_and_slide first, because it determines is_on_floor.
+	var _ignored := move_and_slide(_velocity, Vector2.UP)
+	
 	if is_on_floor():
 		_velocity.y = 0
 	
@@ -23,5 +26,4 @@ func _physics_process(delta:float):
 	if _velocity.y < 0.0 and Input.is_action_just_released("jump"):
 		_velocity.y *= short_jump_velocity_scale
 	
-# warning-ignore:return_value_discarded
-	move_and_slide(_velocity, Vector2.UP)
+	
