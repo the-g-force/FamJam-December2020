@@ -11,6 +11,7 @@ export var short_jump_velocity_scale := 0.4
 var _velocity := Vector2.ZERO
 
 func _physics_process(delta:float):
+	_velocity.x = 300
 	_velocity.y += GRAVITY * delta
 	
 	if is_on_floor():
@@ -24,9 +25,3 @@ func _physics_process(delta:float):
 	
 # warning-ignore:return_value_discarded
 	move_and_slide(_velocity, Vector2.UP)
-
-
-func _draw():
-	var extents:Vector2 = $CollisionShape2D.shape.extents
-	var box := Rect2(-extents, extents*2)
-	draw_rect(box, Color.green)
