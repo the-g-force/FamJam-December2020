@@ -79,7 +79,7 @@ shape = SubResource( 1 )
 position = Vector2( 2.32352, -76.9511 )
 frames = SubResource( 12 )
 animation = "walk"
-frame = 6
+frame = 2
 playing = true
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]

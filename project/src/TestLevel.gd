@@ -42,7 +42,7 @@ func _run_tile_generator(x:float)->void:
 	
 	_tile_index += 1
 	
-	if _tile_index % 5 == 0:
+	if _tile_index > 5 and _tile_index % 5 == 0:
 		var ornament := Ornament.instance()
 		var ornament_vertical_variation = randi()%upper_variation_limit
 		ornament.position.y = -50-ornament_vertical_variation
