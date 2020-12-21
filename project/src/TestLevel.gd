@@ -10,6 +10,7 @@ export var TIME_SCALE_PER_TILE = 0.02
 var _tile_index := 0
 
 onready var _tiles := $Tiles
+onready var _camera := $Camera2D
 
 func _ready():
 	GameState.reset()
@@ -62,6 +63,7 @@ func _on_Ornament_entered(_body, ornament:Node2D):
 
 
 func _process(_delta):
+	_camera.position.x = $Elf.position.x + 334
 	if $Elf.position.y > 700:
 		_game_over()
 
