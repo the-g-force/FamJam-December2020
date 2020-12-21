@@ -12,6 +12,9 @@ var _velocity := Vector2.ZERO
 func _physics_process(delta:float):
 	_velocity.y += GRAVITY * delta
 	
+	if is_on_floor():
+		_velocity.y = 0
+	
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		_velocity.y = -jump_power
 		
@@ -22,5 +25,6 @@ func _physics_process(delta:float):
 
 
 func _draw():
-	var box := Rect2(Vector2.ZERO, Vector2($CollisionShape2D.shape.extents.x, $CollisionShape2D.shape.extents.y))
+	var extents:Vector2 = $CollisionShape2D.shape.extents
+	var box := Rect2(-extents, extents*2)
 	draw_rect(box, Color.green)

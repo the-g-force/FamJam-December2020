@@ -11,8 +11,8 @@ var tile_height_increments := [200, 300, 400, 500]
 onready var _timer := $Timer
 onready var _tiles := $Tiles
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize()
 	_timer.start(tile_spawn_delay)
 
 
