@@ -37,9 +37,12 @@ func _physics_process(delta:float):
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		_velocity.y = -jump_power
-		_jump_sound.play()
+		_play_jump_sound()
 		
 	if _velocity.y < 0.0 and Input.is_action_just_released("jump"):
 		_velocity.y *= short_jump_velocity_scale
 	
 	
+func _play_jump_sound():
+	_jump_sound.pitch_scale = rand_range(0.95, 1.2)
+	_jump_sound.play()
