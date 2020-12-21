@@ -3,34 +3,22 @@ extends Node2D
 
 const TILE : PackedScene = preload("res://src/Tile.tscn")
 
-export var tile_spawn_delay := 1.0
-export var tile_speed := 200.0
-
-
-var was_gap_last_cycle := false
-
-var _until_next_tile := 0.0
-
-var _tile_sequence := 0
+var _last_placement = 0
 
 onready var _TILE_WIDTH = 100
 onready var _tiles := $Tiles
+onready var _elf := $Elf
 
 func _ready():
-	randomize()
-
-
-func _process(delta):
-	_until_next_tile -= tile_speed * delta
-	if _until_next_tile <= 0:
-#		if _tile_sequence == 2:
-#			_tile_sequence = 0
-#		else:
-		var new_tile = TILE.instance()
-		new_tile.position.x = int(1000 + _until_next_tile)
-		_tiles.add_child(new_tile)
-		_tile_sequence += 1
-			
-		_until_next_tile += _TILE_WIDTH
+	for x in range(0,1100,100):
+		_create_tile_at(x)
 		
-
+# warning-ignore:return_value_discarded
+func _create_tile_at(x:float)->void:
+	var new_tile := TILE.instance()
+	new_tile.position.x = x
+	_tiles.add_child(new_tile)
+	new_tile.connect("tile_entered", self, "_on_Tile_entered", [new_tile], CONNECT_ONESHOT)
+		
+func _on_Tile_entered(tile:Node2D):
+	call_deferred("_create_tile_at", tile.position.x + 900)
