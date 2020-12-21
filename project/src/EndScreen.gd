@@ -2,11 +2,12 @@ extends Node2D
 
 onready var _ornaments := $Ornaments
 onready var _tree_polygon := $TreePolygon
+onready var _score_label := $VBoxContainer/Label
 
 func _ready():
 	Jukebox.play_end_music()
 	var score :int= GameState.ornaments.size()
-	$Label.text = "You collected %d ornament%s" % [score, "" if score ==1 else "s"]
+	_score_label.text = "You collected %d ornament%s" % [score, "" if score ==1 else "s"]
 	for ornament in GameState.ornaments:
 			_ornaments.add_child(ornament)			
 			var position := _generate_tree_position()
