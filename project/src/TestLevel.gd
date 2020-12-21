@@ -9,9 +9,12 @@ export var TIME_SCALE_PER_TILE = 0.02
 export var upper_variation_limit := 200
 
 var _tile_index := 0
+var _fell := false
 
 onready var _tiles := $Tiles
 onready var _camera := $Camera2D
+onready var _fall_sound := $FallSound
+onready var _pickup_sound := $PickupSound
 
 func _ready():
 	Jukebox.play_music()
@@ -62,16 +65,19 @@ func _on_TileGenerationTrigger_entered(_body, trigger:Node2D):
 
 
 func _on_Ornament_entered(_body, ornament:Node2D):
+	_pickup_sound.play()
 	GameState.ornaments.append(ornament)
 	ornament.get_parent().call_deferred("remove_child", ornament)
 
 
 func _process(_delta):
 	_camera.position.x = $Elf.position.x + 334
-	if $Elf.position.y > 700:
-		_game_over()
+	if $Elf.position.y > 450 and not _fell:
+		_fell = true
+		_fall_sound.play()
+		_fall_sound.connect("finished", self, "_game_over")
 
 
 func _game_over():
 	$Elf.queue_free()
-	get_tree().change_scene("res://src/EndScreen.tscn")
+	var _ignored := get_tree().change_scene("res://src/EndScreen.tscn")

@@ -9,17 +9,19 @@ export var jump_power := 500
 export var short_jump_velocity_scale := 0.4
 
 var _velocity := Vector2.ZERO
-var was_pressed_last_frame = false
+var _was_pressed_last_frame = false
+
+onready var _jump_sound := $JumpSound
 
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed():
-		if not was_pressed_last_frame:
-			was_pressed_last_frame = true
+		if not _was_pressed_last_frame:
+			_was_pressed_last_frame = true
 			Input.action_press("jump")
 	elif event is InputEventMouseButton and not event.is_pressed():
-		if was_pressed_last_frame:
-			was_pressed_last_frame = false
+		if _was_pressed_last_frame:
+			_was_pressed_last_frame = false
 			Input.action_release("jump")
 
 
@@ -35,6 +37,7 @@ func _physics_process(delta:float):
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		_velocity.y = -jump_power
+		_jump_sound.play()
 		
 	if _velocity.y < 0.0 and Input.is_action_just_released("jump"):
 		_velocity.y *= short_jump_velocity_scale
