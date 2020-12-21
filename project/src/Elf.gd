@@ -22,6 +22,7 @@ func _physics_process(delta:float):
 	if _velocity.y < 0.0 and Input.is_action_just_released("jump"):
 		_velocity.y *= short_jump_velocity_scale
 	
+# warning-ignore:return_value_discarded
 	move_and_slide(_velocity, Vector2.UP)
 
 
