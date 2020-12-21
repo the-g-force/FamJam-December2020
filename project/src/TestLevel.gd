@@ -4,11 +4,14 @@ const INITIAL_TILES := 8
 const Tile : PackedScene = preload("res://src/Tile.tscn")
 const TileGenerationTrigger : PackedScene = preload("res://src/TileGenerationTrigger.tscn")
 
+export var TIME_SCALE_PER_TILE = 0.02
+
 var _tile_index := 0
 
 onready var _tiles := $Tiles
 
 func _ready():
+	Engine.time_scale = 1.0
 	for x in range(0,1100,100):
 		_run_tile_generator(x)
 
@@ -39,6 +42,7 @@ func _create_tile_at(x:float)->void:
 
 
 func _on_TileGenerationTrigger_entered(_body, trigger:Node2D):
+	Engine.time_scale += TIME_SCALE_PER_TILE
 	call_deferred("_run_tile_generator", trigger.position.x + 900)
 	trigger.queue_free()
 
