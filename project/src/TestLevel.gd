@@ -14,6 +14,7 @@ onready var _tiles := $Tiles
 onready var _camera := $Camera2D
 
 func _ready():
+	Jukebox.play_music()
 	randomize()
 	GameState.reset()
 	Engine.time_scale = 1.0

@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	Jukebox.play()
+	Jukebox.play_just_bells()
 
 # warning-ignore:return_value_discarded
 func _on_PlayButton_pressed():

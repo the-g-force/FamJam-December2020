@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="ChristmasTree" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( 1.36914, -239.358, 241.865, 194.545, -267.718, 184.454 )
+
+[node name="Sprite" type="Sprite" parent="."]
