@@ -11,36 +11,33 @@ script = ExtResource( 2 )
 position = Vector2( 166, 310 )
 
 [node name="Tiles" type="Node2D" parent="."]
+position = Vector2( 0, 350 )
 
 [node name="Tile" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 50, 400 )
 
 [node name="Tile2" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 150, 400 )
+position = Vector2( 100, 0 )
 
 [node name="Tile3" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 250, 400 )
+position = Vector2( 200, 0 )
 
 [node name="Tile4" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 350, 400 )
+position = Vector2( 300, 0 )
 
 [node name="Tile5" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 450, 400 )
+position = Vector2( 400, 0 )
 
 [node name="Tile6" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 550, 400 )
+position = Vector2( 500, 0 )
 
 [node name="Tile7" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 650, 400 )
+position = Vector2( 600, 0 )
 
 [node name="Tile8" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 750, 400 )
+position = Vector2( 700, 0 )
 
 [node name="Tile9" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 850, 400 )
+position = Vector2( 800, 0 )
 
 [node name="Tile10" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 950, 400 )
-
-[node name="Timer" type="Timer" parent="."]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+position = Vector2( 900, 0 )
