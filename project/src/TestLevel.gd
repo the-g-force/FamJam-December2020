@@ -35,7 +35,7 @@ func _run_tile_generator(x:float)->void:
 func _create_tile_at(x:float)->void:
 	var new_tile := Tile.instance()
 	new_tile.position.x = x
-	_tiles.add_child(new_tile)	
+	_tiles.add_child(new_tile)
 
 
 func _on_TileGenerationTrigger_entered(_body, trigger:Node2D):
@@ -43,3 +43,11 @@ func _on_TileGenerationTrigger_entered(_body, trigger:Node2D):
 	trigger.queue_free()
 
 
+func _process(_delta):
+	if $Elf.position.y > 700:
+		_game_over()
+
+
+func _game_over():
+	$Elf.queue_free()
+	get_tree().change_scene("res://src/EndScreen.tscn")

@@ -1,0 +1,23 @@
+[gd_scene format=2]
+
+[node name="EndScreen" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 435.578
+margin_top = 282.843
+margin_right = 491.578
+margin_bottom = 296.843
+text = "Whoops."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 432.749
+margin_top = 322.441
+margin_right = 509.749
+margin_bottom = 342.441
+text = "Play Again"
+__meta__ = {
+"_edit_use_anchors_": false
+}
