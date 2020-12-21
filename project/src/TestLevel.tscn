@@ -12,6 +12,12 @@ position = Vector2( 0, 400 )
 [node name="Camera2D" type="Camera2D" parent="Elf"]
 position = Vector2( 334, -100 )
 current = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Tiles" type="Node2D" parent="."]
 position = Vector2( -200, 400 )
+__meta__ = {
+"_edit_lock_": true
+}
