@@ -2,7 +2,6 @@ extends Node2D
 
 
 const TILE : PackedScene = preload("res://src/Tile.tscn")
-const PICKUP : PackedScene = preload("res://src/Pickup.tscn")
 
 export var tile_spawn_delay := 1.0
 export var tile_speed := 100.0
@@ -19,10 +18,7 @@ func _ready():
 
 func _process(delta):
 	for tile in _tiles.get_children():
-		if tile.position.x > 0:
-			tile.position.x -= tile_speed*delta
-		else:
-			tile.queue_free()
+		tile.position.x -= tile_speed*delta
 
 
 func _on_Timer_timeout():

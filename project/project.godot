@@ -28,6 +28,10 @@ config/icon="res://icon.png"
 
 Jukebox="*res://src/Jukebox.tscn"
 
+[display]
+
+window/size/width=1000
+
 [input]
 
 jump={
