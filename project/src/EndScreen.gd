@@ -5,7 +5,8 @@ onready var _tree_polygon := $TreePolygon
 
 func _ready():
 	Jukebox.play_end_music()
-	$Label.text = "You collected %d ornaments" % GameState.ornaments.size()
+	var score :int= GameState.ornaments.size()
+	$Label.text = "You collected %d ornament%s" % [score, "" if score ==1 else "s"]
 	for ornament in GameState.ornaments:
 			_ornaments.add_child(ornament)			
 			var position := _generate_tree_position()

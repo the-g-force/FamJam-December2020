@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/EndScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/tree.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/TitilliumWeb-Bold.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 3 )
 
 [node name="EndScreen" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,21 +23,27 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 754.605
-margin_top = 272.164
-margin_right = 810.605
-margin_bottom = 286.164
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Whoops."
+margin_left = 603.537
+margin_top = 172.233
+margin_right = 975.537
+margin_bottom = 222.233
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.423529, 0.513726, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.00392157, 0, 0.258824, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+text = "You collected N ornaments"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 751.776
-margin_top = 311.762
-margin_right = 828.776
-margin_bottom = 331.762
+margin_left = 717.797
+margin_top = 302.323
+margin_right = 874.797
+margin_bottom = 358.323
+custom_fonts/font = SubResource( 2 )
 text = "Play Again"
 __meta__ = {
 "_edit_use_anchors_": false
