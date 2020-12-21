@@ -3,11 +3,7 @@ extends Node2D
 
 const TILE : PackedScene = preload("res://src/Tile.tscn")
 
-var _last_placement = 0
-
-onready var _TILE_WIDTH = 100
 onready var _tiles := $Tiles
-onready var _elf := $Elf
 
 func _ready():
 	for x in range(0,1100,100):
