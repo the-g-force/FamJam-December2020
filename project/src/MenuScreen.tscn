@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/MenuScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/mainscreen.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/TitilliumWeb-Bold.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+extra_spacing_top = 12
+extra_spacing_bottom = 12
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
 
 [node name="MenuScreen" type="Control"]
 anchor_left = 0.5
@@ -24,15 +34,32 @@ texture = ExtResource( 2 )
 
 [node name="PlayButton" type="Button" parent="mainscreen"]
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -519.5
-margin_top = -531.262
-margin_right = -476.5
-margin_bottom = -511.262
+margin_left = -541.5
+margin_top = 34.4937
+margin_right = -458.5
+margin_bottom = 114.494
+custom_fonts/font = SubResource( 1 )
 text = "PLAY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FullScreenToggle" type="CheckButton" parent="mainscreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -578.5
+margin_top = -61.8337
+margin_right = -421.5
+margin_bottom = -21.8337
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.282353, 0.282353, 0.282353, 1 )
+custom_colors/font_color_hover = Color( 0.282353, 0.282353, 0.282353, 1 )
+text = "Full Screen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="mainscreen/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="mainscreen/FullScreenToggle" to="." method="_on_FullScreenToggle_pressed"]

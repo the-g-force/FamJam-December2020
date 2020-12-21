@@ -32,6 +32,8 @@ GameState="*res://src/GameState.gd"
 [display]
 
 window/size/width=1000
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 
