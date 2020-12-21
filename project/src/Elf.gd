@@ -9,6 +9,19 @@ export var jump_power := 500
 export var short_jump_velocity_scale := 0.4
 
 var _velocity := Vector2.ZERO
+var was_pressed_last_frame = false
+
+
+func _input(event):
+	if event is InputEventMouseButton and event.is_pressed():
+		if not was_pressed_last_frame:
+			was_pressed_last_frame = true
+			Input.action_press("jump")
+	else:
+		if Input.is_action_pressed("jump"):
+			was_pressed_last_frame = false
+			Input.action_release("jump")
+
 
 func _physics_process(delta:float):
 	_velocity.x = 300
